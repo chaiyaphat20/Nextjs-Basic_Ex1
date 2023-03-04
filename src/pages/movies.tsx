@@ -1,5 +1,6 @@
 import { movies } from "@/components/movies/moviesBody";
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 
 interface PropsType {
   movies: movies[];
@@ -7,6 +8,16 @@ interface PropsType {
 }
 
 export default function Movies({ movies, randomData }: PropsType) {
+  const callApi = async () => {
+    const url =
+      "https://jsonplaceholder.typicode.com/todos/1";
+    const res = await axios.get(url);
+    const data = res.data;
+    console.log(data);
+  };
+  useEffect(() => {
+    callApi();
+  }, []);
   return (
     <div>
       <h1>Movies</h1>
@@ -36,3 +47,6 @@ export async function getStaticProps() {
     },
   };
 }
+
+//getStaticProps ถ้าเป็น mode dev จะเรียกใหม่ทุก request
+//แต่ mode production จะ เรียกครั้งเดียวตอน build runtime
