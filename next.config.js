@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: '/adhoc/:path*',
-        destination: 'http://codemobiles.com/*',
+        destination: 'http://codemobiles.com/:path*',
       },
     ]
   },

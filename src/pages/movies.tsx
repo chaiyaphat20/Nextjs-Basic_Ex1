@@ -9,11 +9,14 @@ interface PropsType {
 
 export default function Movies({ movies, randomData }: PropsType) {
   const callApi = async () => {
-    const url =
-      "https://jsonplaceholder.typicode.com/todos/1";
-    const res = await axios.get(url);
-    const data = res.data;
-    console.log(data);
+    try {
+      const url = "https://jsonplaceholder.typicode.com/todos/1";
+      const res = await axios.get(url);
+      const data = res.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   useEffect(() => {
     callApi();
