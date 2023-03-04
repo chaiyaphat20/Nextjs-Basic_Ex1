@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from "react";
+import Link from "next/link";
 export default function index() {
   return (
     <div>
@@ -7,5 +7,5 @@ export default function index() {
       <img src="/vercel.svg" alt="" height={100} />
       <img src="/images/home.png" alt="" height={100} />
     </div>
-  )
+  );
 }
