@@ -28,8 +28,10 @@ export default function Feed({ movies }: PropsType) {
   );
 }
 
+//--------->>>SSG<<<----------------//
+
 // This function gets called at build time
-//ใช้เพื่อ ดึง path ทั้งหมด มาแล้วส่งให้ getStaticProps เอา params.id ไป gen ก่อน (ในขั้นตอน build)
+//ใช้เพื่อ ดึง path ทั้งหมด มาแล้วส่งให้ getStaticProps เอา params.id ไป gen ก่อน (ในขั้นตอน build)   เหมาะสำหรับ ข้อมูลที่ไม่มีการเปลี่ยน แปลง เลย
 export async function getStaticPaths() {
   return {
     paths: [
