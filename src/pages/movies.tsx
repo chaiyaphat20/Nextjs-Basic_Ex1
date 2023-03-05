@@ -8,6 +8,7 @@ interface PropsType {
 }
 
 export default function Movies({ movies, randomData }: PropsType) {
+  debugger;
   const callApi = async () => {
     try {
       const url = "https://jsonplaceholder.typicode.com/todos/1";
