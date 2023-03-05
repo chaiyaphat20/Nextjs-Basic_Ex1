@@ -29,11 +29,13 @@ export default function Movies({ movies, randomData }: any) {
 //คือ call api ใหม่ที่ server แล้ว ส่ง html ที่ gen เสร็จมาให้ browser
 //ส่วน react จะเป็น csr จะ call api ใหม่เหมือนกัน แต่จะ render ที่ฝั่น browser
 export async function getServerSideProps(context: any) {
-  const { type } = context.query;
+  const { type } = context.query;  //http://localhost:3000/ssr/movies?type=foods
+
+  //type -> songs,foods,superhero
 
   // songs, foods, superhero
   // const url = `http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=${type}`;
-  const url = `http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods`;
+  const url = `http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=${type}`;
   const res = await fetch(url);
   const data = await res.json();
   debugger;
