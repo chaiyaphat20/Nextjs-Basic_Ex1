@@ -9,9 +9,18 @@ export default function ClintSide() {
 
   return (
     <div>
-      <div>Clint-Side</div>
+      <div>Client-Side SWR Mutate</div>
       <div>
-        <h1>Movies</h1>
+        <button
+          onClick={() => {
+            mutate({
+              ...data,
+              youtubes: [...data.youtubes, { title: "xxxx", subtitle: "yyyy" }],
+            });
+          }}
+        >
+          Mutate
+        </button>
         <ul>
           {data &&
             data.youtubes.map((movie: any, index: number) => {
