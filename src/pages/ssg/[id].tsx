@@ -5,9 +5,11 @@ import React, { useEffect } from "react";
 
 interface PropsType {
   movies: movies[];
+  random: number;
 }
-
-export default function Feed({ movies }: PropsType) {
+//ต้อง build ก่อน ไม่งั้น จะยังคงเป็น แบบ ssr
+//ค่าจะ โดย gen ตอน build time
+export default function Feed({ movies, random }: PropsType) {
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -15,7 +17,7 @@ export default function Feed({ movies }: PropsType) {
 
   return (
     <div>
-      <h1>Movies</h1>
+      <h1>Random: {random}</h1>
       <ul>
         {movies.map((e, index) => (
           <li key={index}>
@@ -48,9 +50,12 @@ export async function getStaticProps({ params }: any) {
   const res = await fetch(url);
   const data = await res.json();
 
+  const random = Math.random();
+
   return {
     props: {
       movies: data.youtubes,
+      random: random,
     },
   };
 }
